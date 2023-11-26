@@ -5,7 +5,8 @@ body {
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
     display: grid;
-    grid-template: 120px 3fr 3fr / 200px 5fr 200px;
+    grid-template: 120px 300px 1fr / 200px 1fr 275px;
+    align-content: start;
     margin: 0px;
 }
 
@@ -20,7 +21,8 @@ img, button {
 
 .profile {
     width: auto;
-    height: 30px;
+    height: 40px;
+    margin-right: 10px;
 }
 
 .sidebar {
@@ -35,16 +37,19 @@ img, button {
     filter: invert();
 }
 
-.sidebar ul {
-    font-size: 12px;
+ul {
     list-style: none;
     margin: 0px;
     padding: 0px;
+}
+
+.sidebar ul {
+    font-size: 12px;
     position: sticky;
     top: 0px;
 }
 
-.sidebar a, li {
+li, li a {
     display: flex;
     align-items: center;
 }
@@ -55,14 +60,14 @@ header {
     grid-column: 2 / -1;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    gap: 14px;
+    gap: 10px;
     box-shadow: gray 0px -5px 10px 5px;
     z-index: 0;
 }
 
 header div {
     display: grid;
-    grid-template-columns: 1fr 90px 30px 90px;
+    grid-template-columns: 1fr 90px 40px 100px;
     align-items: center;
     justify-items: normal;
     gap: 15px;
@@ -118,41 +123,50 @@ header > div:last-child button {
 
 main, section {
     background-color: #e2e8f0;
+    padding: 25px 15px 15px;
 }
 
 main {
     grid-area: 2 / 2 / -1 / 3;
-    padding: 0px 15px;
+}
+
+h5 {
+    margin: 0px 0px 8px;
 }
 
 main div {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-template-rows: 150px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: minmax(150px, 1fr);
+    grid-auto-rows: minmax(150px, 1fr);
     gap: 20px;
 }
 
-main section {
+.card {
     font-size: 12px;
     font-weight: bold;
     background-color: white;
     padding: 25px 15px 25px;
-    border-left: 5px solid #f59e0b;
     border-radius: 5px;
     box-shadow: lightgray 2px 3px 3px;
     display: flex;
     flex-direction: column;
 }
 
-main section p {
+.card p {
     color: gray;
     font-size: 12px;
     font-weight: normal;
     overflow-y: hidden;
+    text-overflow: ellipsis;
     margin-top: 5px;
 }
 
-main section div {
+main .card {
+    border-left: 5px solid #f59e0b;
+}
+
+main .card div {
     margin-top: auto;
     display: flex;
     justify-content: end;
@@ -175,12 +189,36 @@ main section div {
     grid-row: 2 / 3;
 }
 
+.announcements p {
+    font-size: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid gray;
+}
+
+.announcements p:last-child {
+    padding-bottom: 0px;
+    border: none;
+    margin-bottom: 0px;
+}
+
 .trending {
     grid-row: 3 / 4;
 }
 
+.trending p {
+    margin: 0px;
+}
 
+.trending ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-section {
-    background-color: gray;
+.trending span {
+    color: black;
+}
+
+.announcements .card, .trending .card {
+    font-size: 11px;
 }
